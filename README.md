@@ -1,6 +1,6 @@
 # Lucy Beauchamp — Frontend Portfolio
 
-Personal portfolio site designed to showcase how I build clean, maintainable, component-driven interfaces in modern frontend environments.
+Personal portfolio site showcasing how I build clean, maintainable, component-driven interfaces in modern frontend environments.
 
 🌐 Live site: https://lucybeauchamp.dev
 
@@ -22,12 +22,7 @@ The goal is not just to make something look good, but to make it **easy to exten
 
 ## Tech Stack
 
-- Vue 3
-- TypeScript
-- Vue Router
-- SCSS
-- Vite
-- Netlify
+Vue 3 · TypeScript · Vue Router · SCSS · Vite · Netlify
 
 ---
 
