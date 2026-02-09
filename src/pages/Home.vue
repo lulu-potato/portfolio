@@ -9,17 +9,17 @@ const links = [
   {
     href: 'https://github.com/lulu-potato',
     text: 'GitHub',
-    variant: 'primary' as const,
+    options: { variant: 'primary', width: 'full' },
   },
   {
     href: 'https://www.linkedin.com/in/lucy-beauchamp/',
     text: 'LinkedIn',
-    variant: 'secondary' as const,
+    options: { variant: 'secondary', width: 'full' },
   },
   {
     href: 'mailto:hello@lucybeauchamp.dev',
     text: 'Email',
-    variant: 'ghost' as const,
+    options: { variant: 'ghost', width: 'full' },
   },
 ] as const
 
@@ -57,9 +57,8 @@ const handleCardClick = (event: MouseEvent) => {
               :key="link.href"
               as="a"
               :href="link.href"
-              :variant="link.variant"
+              :options="link.options"
               :text="link.text"
-              width="full"
             />
           </div>
         </Transition>

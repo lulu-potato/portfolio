@@ -108,7 +108,7 @@ const classes = computed(() => {
   &--radius-default {
     border-radius: 14px;
   }
-  &--radius-large {
+  &--radius-lg {
     border-radius: 20px;
   }
   &.is-clickable {

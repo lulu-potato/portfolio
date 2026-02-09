@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import BaseButton from '../base/BaseButton.vue'
-import { useRouter } from 'vue-router'
+import { useRouter, type RouteLocationRaw } from 'vue-router'
 import { useFireworks } from '@/composables/useFireworks'
 
 const router = useRouter()
 const { spawn: spawnFireworks } = useFireworks()
 
-const navLinks = [
-  { to: '/', text: 'Home' },
-  { to: '/projects', text: 'Projects' },
-  { to: '/about', text: 'About' },
+const navLinks: Array<{ id: string; to: RouteLocationRaw; text: string }> = [
+  { id: 'home', to: '/', text: 'Home' },
+  { id: 'projects', to: '/projects', text: 'Projects' },
+  { id: 'about', to: '/about', text: 'About' },
 ]
 
 const handleBrandClick = (event: MouseEvent) => {
@@ -31,17 +31,15 @@ const handleBrandClick = (event: MouseEvent) => {
         <TransitionGroup name="fade-up" tag="div" class="the-header__nav-inner" appear>
           <div
             v-for="(link, index) in navLinks"
-            :key="link.to"
+            :key="link.id"
             class="the-header__nav-item"
             :style="{ '--stagger-delay': `${0.1 + index * 0.1}s` }"
           >
             <BaseButton
               as="router-link"
               :to="link.to"
-              variant="ghost"
-              size="small"
+              :options="{ variant: 'ghost', size: 'small', width: 'full' }"
               :text="link.text"
-              width="full"
             />
           </div>
         </TransitionGroup>

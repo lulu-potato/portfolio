@@ -1,52 +1,56 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { RouteLocationRaw } from 'vue-router'
 
 type Variant = 'primary' | 'secondary' | 'ghost'
 type Size = 'default' | 'small'
-type As = 'button' | 'a' | 'router-link'
 type Width = 'auto' | 'quarter' | 'half' | 'full'
+type As = 'button' | 'a' | 'router-link'
+
+type Options = {
+  variant?: Variant
+  size?: Size
+  width?: Width
+}
 
 const {
-  variant = 'primary',
-  size = 'default',
   as = 'button',
   type = 'button',
   href,
   to,
   disabled = false,
   loading = false,
-  width = 'auto',
   text,
+  options,
 } = defineProps<{
-  variant?: Variant
-  size?: Size
   as?: As
   type?: 'button' | 'submit' | 'reset'
   href?: string
-  to?: string | Record<string, any>
+  to?: RouteLocationRaw
   disabled?: boolean
   loading?: boolean
-  width?: Width
   text?: string
+  options?: Options
 }>()
 
 const emit = defineEmits<{
   (e: 'click', event: MouseEvent): void
 }>()
 
+const variant = computed<Variant>(() => options?.variant ?? 'primary')
+const size = computed<Size>(() => options?.size ?? 'default')
+const width = computed<Width>(() => options?.width ?? 'auto')
+
 const isButton = computed(() => as === 'button')
 const isLink = computed(() => as === 'a')
 const isRouterLink = computed(() => as === 'router-link')
 
-const componentTag = computed(() => {
-  if (isRouterLink.value) return 'router-link'
-  return as
-})
+const componentTag = computed(() => (isRouterLink.value ? 'router-link' : as))
 
 const isActuallyDisabled = computed(() => disabled || loading)
 
 const externalLink = computed(() => {
-  return as === 'a' && typeof href === 'string' && href.startsWith('http')
+  return as === 'a' && typeof href === 'string' && /^https?:\/\//.test(href)
 })
 
 const handleClick = (event: MouseEvent) => {
@@ -188,6 +192,7 @@ const handleClick = (event: MouseEvent) => {
     width: 100%;
   }
 }
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

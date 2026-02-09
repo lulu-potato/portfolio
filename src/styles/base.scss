@@ -9,6 +9,7 @@
 html {
   font-size: 16px;
   text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
   @include sm-mobile {
     font-size: 14px;
   }
