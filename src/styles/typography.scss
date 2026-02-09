@@ -1,0 +1,41 @@
+@mixin header-1($size: default) {
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.2;
+
+  @if $size == small {
+    font-size: 1.75rem;
+  } @else if $size == large {
+    font-size: 2.5rem;
+  } @else {
+    font-size: 2.125rem;
+  }
+}
+
+@mixin header-2($size: default) {
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: 1.3;
+
+  @if $size == small {
+    font-size: 1.375rem;
+  } @else if $size == large {
+    font-size: 1.75rem;
+  } @else {
+    font-size: 1.5rem;
+  }
+}
+
+@mixin body-default($size: default) {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+
+  @if $size == small {
+    font-size: 0.875rem;
+  } @else if $size == large {
+    font-size: 1.125rem;
+  } @else {
+    font-size: 1rem;
+  }
+}

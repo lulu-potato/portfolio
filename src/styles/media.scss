@@ -1,0 +1,31 @@
+$bp-sm-mobile: 375px;
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-lg-desktop: 1280px;
+
+@mixin sm-mobile {
+  @media (max-width: $bp-sm-mobile) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (min-width: $bp-mobile) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+@mixin lg-desktop {
+  @media (min-width: $bp-lg-desktop) {
+    @content;
+  }
+}

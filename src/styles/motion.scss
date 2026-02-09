@@ -1,0 +1,78 @@
+/* ======================================
+   Motion Utilities
+   ====================================== */
+
+.fade-up-enter-active {
+  animation: fadeInUp 420ms var(--motion-ease-out) both;
+  animation-delay: var(--stagger-delay, 0s);
+}
+
+.fade-up-slow-enter-active {
+  animation: fadeInUp 680ms var(--motion-ease-out) both;
+  animation-delay: var(--stagger-delay, 0s);
+}
+
+.fade-up-leave-active {
+  animation: fadeOutDown var(--motion-duration-fast) var(--motion-ease-out) both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance-sm));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--motion-distance-xs));
+  }
+}
+
+.fx-fireworks {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+
+  span {
+    position: absolute;
+    border-radius: 999px;
+    background: var(--color);
+    opacity: 0;
+    animation: firework var(--duration, 650ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    filter: drop-shadow(0 0 12px var(--color)) drop-shadow(0 0 4px var(--color));
+    box-shadow: 0 0 8px var(--color) inset;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-fireworks span {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@keyframes firework {
+  0% {
+    transform: rotate(var(--angle)) translateX(0) rotate(0deg) scale(0.3);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(var(--angle)) translateX(calc(var(--distance) * 0.7))
+      rotate(calc(var(--rotation) * 0.5)) scale(1);
+  }
+  100% {
+    transform: rotate(var(--angle)) translateX(var(--distance)) rotate(var(--rotation)) scale(0);
+    opacity: 0;
+  }
+}

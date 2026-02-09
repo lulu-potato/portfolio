@@ -1,0 +1,54 @@
+:root {
+  /* ======================================
+     Colour (RGB)
+     ====================================== */
+
+  --background: 16 10 26;
+  --surface: 24 16 40;
+  --surface-alt: 32 22 52;
+  --border: 52 38 78;
+
+  --text-primary: 245 240 252;
+  --text-secondary: 200 188 224;
+  --text-muted: 150 136 180;
+
+  --accent: 191 167 255;
+  --accent-soft: 217 204 255;
+  --accent-dim: 138 116 204;
+
+  --success: 110 231 183;
+  --warning: 250 204 21;
+  --error: 248 113 113;
+
+  /* ======================================
+     Typography
+     ====================================== */
+
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ======================================
+     Spacing
+     ====================================== */
+
+  --padding: 1.25rem;
+
+  /* ======================================
+     Breakpoints
+     ====================================== */
+
+  --bp-sm-mobile: 360;
+  --bp-mobile: 480;
+  --bp-tablet: 768;
+  --bp-desktop: 1024;
+  --bp-lg-desktop: 1280;
+
+  /* ======================================
+     Motion
+     ====================================== */
+
+  --motion-duration-fast: 0.4s;
+  --motion-duration-default: 0.6s;
+  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-distance-sm: 12px;
+  --motion-distance-md: 20px;
+}
