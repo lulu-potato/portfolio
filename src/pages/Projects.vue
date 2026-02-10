@@ -56,7 +56,10 @@ const handleCardClick = (event: MouseEvent) => {
   display: flex;
   flex: 1;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  @include tablet {
+    align-items: center;
+  }
   &__inner {
     max-width: 1248px;
     margin: 0 auto;

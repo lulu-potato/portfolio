@@ -38,7 +38,7 @@ const footerLinks = [
   &__inner {
     max-width: calc(1248px + (var(--padding) * 2));
     margin: 0 auto;
-    padding: calc(var(--padding) * 1.1) var(--padding);
+    padding: var(--padding);
     display: flex;
     flex-direction: row;
     align-items: center;

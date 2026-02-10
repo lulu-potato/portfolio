@@ -65,7 +65,7 @@ const handleBrandClick = (event: MouseEvent) => {
   &__inner {
     max-width: calc(1248px + (var(--padding) * 2));
     margin: 0 auto;
-    padding: calc(var(--padding) * 0.85) var(--padding);
+    padding: var(--padding);
     display: flex;
     align-items: center;
     justify-content: space-between;
