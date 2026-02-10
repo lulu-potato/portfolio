@@ -66,7 +66,10 @@ const handleCardClick = (event: MouseEvent) => {
   }
   &__title {
     @include header-1();
-    margin-bottom: calc(var(--padding) * 1.5);
+    margin-bottom: var(--padding);
+    @include tablet {
+      margin-bottom: calc(var(--padding) * 1.5);
+    }
   }
   &__item {
     display: flex;
