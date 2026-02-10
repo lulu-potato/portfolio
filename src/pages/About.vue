@@ -54,6 +54,9 @@ import profileImage from '@/assets/images/profilepicture.jpg'
   display: flex;
   justify-content: center;
   align-items: center;
+  @include tablet {
+    padding: calc(var(--padding) * 2);
+  }
   &__inner {
     max-width: 720px;
     margin: 0 auto;

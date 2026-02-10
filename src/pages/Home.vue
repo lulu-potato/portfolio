@@ -108,6 +108,9 @@ const handleCardClick = (event: MouseEvent) => {
   padding: var(--padding);
   color: rgb(var(--text-primary));
   display: flex;
+  @include tablet {
+    padding: calc(var(--padding) * 2);
+  }
   &__inner {
     width: 100%;
     margin: 0 auto;

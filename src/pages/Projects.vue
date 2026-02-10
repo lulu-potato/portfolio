@@ -59,6 +59,7 @@ const handleCardClick = (event: MouseEvent) => {
   align-items: flex-start;
   @include tablet {
     align-items: center;
+    padding: calc(var(--padding) * 2);
   }
   &__inner {
     max-width: 1248px;
