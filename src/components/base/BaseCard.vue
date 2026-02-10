@@ -102,7 +102,7 @@ const classes = computed(() => {
   &--pad-lg {
     padding: var(--padding);
     @include desktop {
-      padding: 3rem;
+      padding: calc(var(--padding) * 2);
     }
   }
   &--radius-default {
