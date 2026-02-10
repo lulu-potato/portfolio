@@ -51,7 +51,7 @@ const handleCardClick = (event: MouseEvent) => {
 @use '@/styles/media.scss' as *;
 
 .projects {
-  padding: calc(var(--padding) * 2) var(--padding);
+  padding: var(--padding);
   width: 100%;
   display: flex;
   flex: 1;

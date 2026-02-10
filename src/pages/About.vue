@@ -48,7 +48,7 @@ import profileImage from '@/assets/images/profilepicture.jpg'
 @use '@/styles/media.scss' as *;
 
 .about {
-  padding: calc(var(--padding) * 2) var(--padding);
+  padding: var(--padding);
   width: 100%;
   flex: 1;
   display: flex;
