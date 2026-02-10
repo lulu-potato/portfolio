@@ -51,19 +51,26 @@ const handleCardClick = (event: MouseEvent) => {
 @use '@/styles/media.scss' as *;
 
 .projects {
-  padding: calc(var(--padding) * 2) var(--padding);
+  padding: var(--padding);
   width: 100%;
   display: flex;
   flex: 1;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  @include tablet {
+    align-items: center;
+    padding: calc(var(--padding) * 2);
+  }
   &__inner {
     max-width: 1248px;
     margin: 0 auto;
   }
   &__title {
     @include header-1();
-    margin-bottom: calc(var(--padding) * 1.5);
+    margin-bottom: var(--padding);
+    @include tablet {
+      margin-bottom: calc(var(--padding) * 1.5);
+    }
   }
   &__item {
     display: flex;

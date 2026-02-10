@@ -67,15 +67,15 @@ const classes = computed(() => {
     background-color 140ms ease,
     box-shadow 140ms ease;
   &__header {
-    padding-bottom: calc(var(--padding) * 0.75);
+    padding-bottom: var(--padding);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    margin-bottom: calc(var(--padding) * 0.75);
+    margin-bottom: var(--padding);
   }
   &__body {
     min-width: 0;
   }
   &__footer {
-    padding-top: calc(var(--padding) * 0.75);
+    padding-top: var(--padding);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
   &--default {
@@ -102,7 +102,7 @@ const classes = computed(() => {
   &--pad-lg {
     padding: var(--padding);
     @include desktop {
-      padding: 3rem;
+      padding: calc(var(--padding) * 2);
     }
   }
   &--radius-default {

@@ -105,9 +105,12 @@ const handleCardClick = (event: MouseEvent) => {
 
 .home {
   flex: 1;
-  padding: calc(var(--padding) * 2) var(--padding);
+  padding: var(--padding);
   color: rgb(var(--text-primary));
   display: flex;
+  @include tablet {
+    padding: calc(var(--padding) * 2);
+  }
   &__inner {
     width: 100%;
     margin: 0 auto;
@@ -124,7 +127,6 @@ const handleCardClick = (event: MouseEvent) => {
     }
   }
   &__hero {
-    padding-top: calc(var(--padding) * 1);
     max-width: 550px;
   }
   &__eyebrow {

@@ -48,12 +48,15 @@ import profileImage from '@/assets/images/profilepicture.jpg'
 @use '@/styles/media.scss' as *;
 
 .about {
-  padding: calc(var(--padding) * 2) var(--padding);
+  padding: var(--padding);
   width: 100%;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  @include tablet {
+    padding: calc(var(--padding) * 2);
+  }
   &__inner {
     max-width: 720px;
     margin: 0 auto;
