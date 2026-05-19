@@ -6,6 +6,11 @@ const router = createRouter({
   routes: [
     { path: '/', name: 'Home', component: Home },
     { path: '/projects', name: 'Projects', component: () => import('@/pages/Projects.vue') },
+    {
+      path: '/projects/:slug',
+      name: 'ProjectPage',
+      component: () => import('@/pages/ProjectPage.vue'),
+    },
     { path: '/about', name: 'About', component: () => import('@/pages/About.vue') },
   ],
   scrollBehavior(_, __, savedPosition) {
@@ -21,7 +26,15 @@ router.afterEach((to) => {
     return
   }
 
-  const name = typeof to.name === 'string' ? to.name : ''
+  const name =
+    to.name === 'ProjectPage' && typeof to.params.slug === 'string'
+      ? to.params.slug
+          .split('-')
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ')
+      : typeof to.name === 'string'
+        ? to.name
+        : ''
   document.title = name ? `${name} — Lucy Beauchamp` : baseTitle
 })
 

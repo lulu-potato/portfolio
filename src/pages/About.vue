@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseCard from '@/components/base/BaseCard.vue'
+import BaseMedia from '@/components/base/BaseMedia.vue'
 import profileImage from '@/assets/images/profilepicture.jpg'
 </script>
 
@@ -17,7 +18,14 @@ import profileImage from '@/assets/images/profilepicture.jpg'
           </template>
 
           <div class="about__intro">
-            <img :src="profileImage" alt="Photo of Lucy Beauchamp" class="about__image" />
+            <BaseMedia
+              class="about__image"
+              :src="profileImage"
+              alt="Photo of Lucy Beauchamp"
+              label="Photo of Lucy Beauchamp"
+              :width="800"
+              :height="800"
+            />
 
             <p class="about__body">
               I'm a front-end developer who enjoys building interfaces that behave predictably and
@@ -78,11 +86,8 @@ import profileImage from '@/assets/images/profilepicture.jpg'
   }
   &__image {
     width: 250px;
-    height: 250px;
     border-radius: 999px;
-    object-fit: cover;
     flex-shrink: 0;
-    border: 1px solid rgba(255, 255, 255, 0.12);
   }
   &__body {
     @include body-default();
