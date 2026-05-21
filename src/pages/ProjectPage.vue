@@ -37,107 +37,112 @@ const closeGalleryMedia = () => {
 </script>
 
 <template>
-  <article v-if="project" class="project-detail">
-    <div class="project-detail__inner">
-      <div class="project-detail__eyebrow">
-        <router-link to="/projects">Projects</router-link>
-      </div>
-
-      <section class="project-detail__hero" aria-labelledby="project-title">
-        <UiMedia class="project-detail__hero-image" v-bind="project.heroMedia" loading="eager" />
-
-        <div class="project-detail__intro">
-          <h1 id="project-title" class="project-detail__title">
-            <a :href="project.liveUrl" target="_blank" rel="noopener noreferrer">
-              {{ project.heroTitle }}
-            </a>
-          </h1>
-          <p class="project-detail__summary">{{ project.heroSummary }}</p>
-          <UiButton
-            class="project-detail__intro-button"
-            as="a"
-            :href="project.liveUrl"
-            text="View Live Experience"
-            :options="{ variant: 'primary' }"
-          />
+  <div class="project-detail-page">
+    <article v-if="project" class="project-detail">
+      <div class="project-detail__inner">
+        <div class="project-detail__eyebrow">
+          <router-link to="/projects">Projects</router-link>
         </div>
-      </section>
 
-      <section class="project-detail__section project-detail__overview" aria-labelledby="overview">
-        <h2 id="overview">Overview</h2>
-        <p v-for="paragraph in project.overview" :key="paragraph">{{ paragraph }}</p>
-      </section>
+        <section class="project-detail__hero" aria-labelledby="project-title">
+          <UiMedia class="project-detail__hero-image" v-bind="project.heroMedia" loading="eager" />
 
-      <div class="project-detail__columns">
-        <section class="project-detail__section" aria-labelledby="tech-stack">
-          <h2 id="tech-stack">Tech Stack</h2>
-          <ul class="project-detail__tag-list">
-            <li v-for="item in project.techStack" :key="item">{{ item }}</li>
+          <div class="project-detail__intro">
+            <h1 id="project-title" class="project-detail__title">
+              <a :href="project.liveUrl" target="_blank" rel="noopener noreferrer">
+                {{ project.heroTitle }}
+              </a>
+            </h1>
+            <p class="project-detail__summary">{{ project.heroSummary }}</p>
+            <UiButton
+              class="project-detail__intro-button"
+              as="a"
+              :href="project.liveUrl"
+              text="View Live Experience"
+              :options="{ variant: 'primary' }"
+            />
+          </div>
+        </section>
+
+        <section
+          class="project-detail__section project-detail__overview"
+          aria-labelledby="overview"
+        >
+          <h2 id="overview">Overview</h2>
+          <p v-for="paragraph in project.overview" :key="paragraph">{{ paragraph }}</p>
+        </section>
+
+        <div class="project-detail__columns">
+          <section class="project-detail__section" aria-labelledby="tech-stack">
+            <h2 id="tech-stack">Tech Stack</h2>
+            <ul class="project-detail__tag-list">
+              <li v-for="item in project.techStack" :key="item">{{ item }}</li>
+            </ul>
+          </section>
+
+          <section class="project-detail__section" aria-labelledby="key-features">
+            <h2 id="key-features">Key Features</h2>
+            <ul>
+              <li v-for="item in project.keyFeatures" :key="item">{{ item }}</li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="project-detail__section" aria-labelledby="design-decisions">
+          <h2 id="design-decisions">Design Decisions</h2>
+          <ul class="project-detail__decision-list">
+            <li v-for="item in project.designDecisions" :key="item.title || item.body">
+              <strong v-if="item.title">{{ item.title }}</strong>
+              <span>{{ item.body }}</span>
+            </li>
           </ul>
         </section>
 
-        <section class="project-detail__section" aria-labelledby="key-features">
-          <h2 id="key-features">Key Features</h2>
-          <ul>
-            <li v-for="item in project.keyFeatures" :key="item">{{ item }}</li>
-          </ul>
+        <section class="project-detail__section" aria-labelledby="gallery">
+          <h2 id="gallery">Gallery</h2>
+          <div class="project-detail__gallery">
+            <button
+              v-for="(media, index) in project.galleryMedia"
+              :key="media.label"
+              class="project-detail__gallery-button"
+              type="button"
+              :aria-label="`Open ${media.label}`"
+              @click="openGalleryMedia(index)"
+            >
+              <UiMedia class="project-detail__gallery-slot" v-bind="media" :toggleable="false" />
+            </button>
+          </div>
+        </section>
+
+        <section class="project-detail__section" aria-labelledby="links">
+          <h2 id="links">Links</h2>
+          <div class="project-detail__links">
+            <UiButton
+              class="project-detail__links-button"
+              as="a"
+              :href="project.liveUrl"
+              text="View Live Experience"
+              :options="{ variant: 'primary' }"
+            />
+            <UiButton
+              v-if="project.githubUrl"
+              class="project-detail__links-button"
+              as="a"
+              :href="project.githubUrl"
+              text="GitHub Repository"
+              :options="{ variant: 'secondary' }"
+            />
+          </div>
         </section>
       </div>
+    </article>
 
-      <section class="project-detail__section" aria-labelledby="design-decisions">
-        <h2 id="design-decisions">Design Decisions</h2>
-        <ul class="project-detail__decision-list">
-          <li v-for="item in project.designDecisions" :key="item.title || item.body">
-            <strong v-if="item.title">{{ item.title }}</strong>
-            <span>{{ item.body }}</span>
-          </li>
-        </ul>
-      </section>
-
-      <section class="project-detail__section" aria-labelledby="gallery">
-        <h2 id="gallery">Gallery</h2>
-        <div class="project-detail__gallery">
-          <button
-            v-for="(media, index) in project.galleryMedia"
-            :key="media.label"
-            class="project-detail__gallery-button"
-            type="button"
-            :aria-label="`Open ${media.label}`"
-            @click="openGalleryMedia(index)"
-          >
-            <UiMedia class="project-detail__gallery-slot" v-bind="media" :toggleable="false" />
-          </button>
-        </div>
-      </section>
-
-      <section class="project-detail__section" aria-labelledby="links">
-        <h2 id="links">Links</h2>
-        <div class="project-detail__links">
-          <UiButton
-            class="project-detail__links-button"
-            as="a"
-            :href="project.liveUrl"
-            text="View Live Experience"
-            :options="{ variant: 'primary' }"
-          />
-          <UiButton
-            v-if="project.githubUrl"
-            class="project-detail__links-button"
-            as="a"
-            :href="project.githubUrl"
-            text="GitHub Repository"
-            :options="{ variant: 'secondary' }"
-          />
-        </div>
-      </section>
-    </div>
-  </article>
-
-  <UiLightbox
-    :model-value="Boolean(selectedGalleryMedia)"
-    :media="selectedGalleryMedia"
-    @update:model-value="(value) => !value && closeGalleryMedia()"
-  />
+    <UiLightbox
+      :model-value="Boolean(selectedGalleryMedia)"
+      :media="selectedGalleryMedia"
+      @update:model-value="(value) => !value && closeGalleryMedia()"
+    />
+  </div>
 </template>
 
 <style scoped lang="scss">

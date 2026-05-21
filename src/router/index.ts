@@ -8,25 +8,21 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: Home,
-      meta: { transitionName: 'out-in-fade', transitionMode: 'out-in' },
     },
     {
       path: '/projects',
       name: 'Projects',
       component: () => import('@/pages/Projects.vue'),
-      meta: { transitionName: 'out-in-fade', transitionMode: 'out-in' },
     },
     {
       path: '/projects/:slug',
       name: 'ProjectPage',
       component: () => import('@/pages/ProjectPage.vue'),
-      meta: { transitionName: 'out-in-fade', transitionMode: 'out-in' },
     },
     {
       path: '/about',
       name: 'About',
       component: () => import('@/pages/About.vue'),
-      meta: { transitionName: 'out-in-fade', transitionMode: 'out-in' },
     },
   ],
   scrollBehavior(_, __, savedPosition) {
