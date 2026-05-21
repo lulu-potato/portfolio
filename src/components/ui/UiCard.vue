@@ -25,12 +25,11 @@ const classes = computed(() => {
   const variant = options?.variant ?? 'default'
   const padding = options?.padding ?? 'default'
   const radius = options?.radius ?? 'default'
-
   return [
-    'base-card',
-    `base-card--${variant}`,
-    `base-card--pad-${padding}`,
-    `base-card--radius-${radius}`,
+    'ui-card',
+    `ui-card--${variant}`,
+    `ui-card--pad-${padding}`,
+    `ui-card--radius-${radius}`,
     { 'is-clickable': clickable },
   ]
 })
@@ -38,15 +37,15 @@ const classes = computed(() => {
 
 <template>
   <component :is="as" :class="classes">
-    <header v-if="$slots.header" class="base-card__header">
+    <header v-if="$slots.header" class="ui-card__header">
       <slot name="header" />
     </header>
 
-    <div class="base-card__body">
+    <div class="ui-card__body">
       <slot />
     </div>
 
-    <footer v-if="$slots.footer" class="base-card__footer">
+    <footer v-if="$slots.footer" class="ui-card__footer">
       <slot name="footer" />
     </footer>
   </component>
@@ -56,7 +55,7 @@ const classes = computed(() => {
 @use '@/styles/typography.scss' as *;
 @use '@/styles/media.scss' as *;
 
-.base-card {
+.ui-card {
   border: 1px solid rgb(var(--border));
   background: rgb(var(--surface));
   color: rgb(var(--text-primary));

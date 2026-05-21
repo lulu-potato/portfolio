@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseButton from '../base/BaseButton.vue'
+import UiButton from '@/components/ui/UiButton.vue'
 import { useRouter, type RouteLocationRaw } from 'vue-router'
 import { useFireworks } from '@/composables/useFireworks'
 
@@ -35,7 +35,7 @@ const handleBrandClick = (event: MouseEvent) => {
             class="the-header__nav-item"
             :style="{ '--stagger-delay': `${0.1 + index * 0.1}s` }"
           >
-            <BaseButton
+            <UiButton
               as="router-link"
               :to="link.to"
               :options="{ variant: 'ghost', size: 'small', width: 'full' }"

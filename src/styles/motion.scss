@@ -16,6 +16,19 @@
   animation: fadeOutDown var(--motion-duration-fast) var(--motion-ease-out) both;
 }
 
+.out-in-fade-enter-active,
+.out-in-fade-leave-active {
+  transition:
+    opacity 260ms var(--motion-ease-out),
+    transform 260ms var(--motion-ease-out);
+}
+
+.out-in-fade-enter-from,
+.out-in-fade-leave-to {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -55,6 +68,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .out-in-fade-enter-active,
+  .out-in-fade-leave-active {
+    transition-duration: 1ms;
+  }
+
   .fx-fireworks span {
     animation: none;
     opacity: 0;

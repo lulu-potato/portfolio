@@ -66,11 +66,11 @@ const handleClick = (event: MouseEvent) => {
 <template>
   <component
     :is="componentTag"
-    class="base-button"
+    class="ui-button"
     :class="[
-      `base-button--${variant}`,
-      `base-button--${size}`,
-      `base-button--${width}`,
+      `ui-button--${variant}`,
+      `ui-button--${size}`,
+      `ui-button--${width}`,
       { 'is-disabled': isActuallyDisabled, 'is-loading': loading },
     ]"
     :href="isLink ? href : undefined"
@@ -83,7 +83,7 @@ const handleClick = (event: MouseEvent) => {
     :rel="externalLink ? 'noopener noreferrer' : undefined"
     @click="handleClick"
   >
-    <span v-if="loading" class="base-button__spinner" aria-hidden="true" />
+    <span v-if="loading" class="ui-button__spinner" aria-hidden="true" />
     {{ text }}
   </component>
 </template>
@@ -91,7 +91,7 @@ const handleClick = (event: MouseEvent) => {
 <style scoped lang="scss">
 @use '@/styles/typography.scss' as *;
 
-.base-button {
+.ui-button {
   appearance: none;
   border: 1px solid transparent;
   text-decoration: none;

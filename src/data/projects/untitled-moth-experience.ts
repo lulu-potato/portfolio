@@ -9,11 +9,11 @@ export const untitledMothExperience: Project = {
   slug: 'untitled-moth-experience',
   title: 'untitled MÖTH experience',
   summary:
-    'An atmospheric interactive vignette about moths, light, and the unintended consequences of awareness.',
+    'A small interactive experience about moths, light, and the unintended consequences of giving insects existential awareness.',
   stack: ['Vue 3', 'TypeScript', 'SCSS', 'Animation'],
   heroTitle: 'untitled MÖTH experience',
   heroSummary:
-    'Experimental interactive web vignette blending atmospheric motion, surreal dialogue, and reactive scene interactions.',
+    'A playful browser experience combining atmospheric visuals, strange dialogue, and progressively more concerned moths.',
   heroMedia: {
     src: mothExperienceHero,
     type: 'image',
@@ -24,37 +24,37 @@ export const untitledMothExperience: Project = {
   },
   liveUrl: 'https://untitled-moth.netlify.app/',
   overview: [
-    'A small experimental browser experience inspired by old Flash-era interactive sites, point-and-click adventures, and internet moth meme culture.',
-    'The project focuses on subtle atmospheric animation, reactive dialogue systems, and balancing surreal humor with immersive visual design.',
+    `untitled MÖTH experience started as a small experiment in animation and interaction design, inspired by old point-and-click adventures and the internet's — and my — obsession with moth memes.`,
+    `I wanted to create something atmospheric and a little weird while keeping the experience simple and approachable.`,
   ],
-  techStack: ['Vue 3', 'TypeScript', 'SCSS', 'Animation utilities', 'Reactive state handling'],
+  techStack: ['Vue 3', 'TypeScript', 'SCSS', 'Custom animations', 'Reactive state management'],
   keyFeatures: [
-    'Layered animated scene composition',
-    'Reactive dialogue/state system',
-    'Atmospheric motion effects',
-    'Responsive immersive layout',
-    'Progressive chaos-state interactions',
-    'Diegetic UI controls',
+    'Animated layered scenes',
+    'Character-driven dialogue',
+    'Interactive moth encounters',
+    'Responsive desktop and mobile layouts',
+    'Progressive event and chaos system',
+    'Minimal, immersive UI',
   ],
   designDecisions: [
     {
-      body: 'The experience was intentionally designed to feel closer to a small interactive vignette than a conventional website.',
+      body: 'This was designed to feel like a tiny interactive game rather than a traditional website.',
     },
     {
-      title: 'Minimal UI',
-      body: 'Buttons, visible controls, and scrollbars were reduced or hidden where possible so interactions feel more atmospheric and exploratory.',
+      title: 'Less Interface, More Atmosphere',
+      body: 'Buttons, scrollbars, and other UI elements were removed or hidden where possible to keep the focus on exploration and discovery.',
     },
     {
-      title: 'Ambient Motion',
-      body: 'Subtle layered movement and slow environmental animation were used to create a sense of stillness and unease without overwhelming the scene.',
+      title: 'Subtle Motion',
+      body: 'Environmental animations were kept slow and understated so the scene feels alive without becoming distracting.',
     },
     {
-      title: 'Reactive Dialogue',
-      body: 'Dialogue shifts progressively from playful to existential as the experience unfolds, balancing absurd humor with atmospheric tension.',
+      title: 'Escalating Absurdity',
+      body: 'The dialogue starts playful and gradually becomes more existential as the moths gain awareness, turning a simple joke into a tiny narrative arc.',
     },
     {
-      title: 'Immersive Layout',
-      body: 'The scene composition was designed to remain visually consistent across desktop and mobile while preserving the feeling of a contained interactive space.',
+      title: 'Built for Any Screen',
+      body: 'The experience was designed to feel consistent across mobile and desktop while preserving the same atmosphere and pacing.',
     },
   ],
   galleryMedia: [

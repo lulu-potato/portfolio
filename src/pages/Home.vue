@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BaseButton from '@/components/base/BaseButton.vue'
-import BaseCard from '@/components/base/BaseCard.vue'
+import UiButton from '@/components/ui/UiButton.vue'
+import UiCard from '@/components/ui/UiCard.vue'
 import { useFireworks } from '@/composables/useFireworks'
 
 const { spawn: spawnFireworks } = useFireworks()
@@ -52,7 +52,7 @@ const handleCardClick = (event: MouseEvent) => {
 
         <Transition name="fade-up" appear>
           <div class="home__actions" style="--stagger-delay: 0.4s">
-            <BaseButton
+            <UiButton
               v-for="link in links"
               :key="link.href"
               as="a"
@@ -65,7 +65,7 @@ const handleCardClick = (event: MouseEvent) => {
       </div>
 
       <Transition name="fade-up" appear>
-        <BaseCard
+        <UiCard
           class="home__card"
           :options="{ variant: 'muted' }"
           style="--stagger-delay: 0.38s"
@@ -93,7 +93,7 @@ const handleCardClick = (event: MouseEvent) => {
           <template #footer>
             <p class="home__card-footnote">Building things intentionally.</p>
           </template>
-        </BaseCard>
+        </UiCard>
       </Transition>
     </div>
   </section>
@@ -189,16 +189,17 @@ const handleCardClick = (event: MouseEvent) => {
     transform: translateY(-1px);
     animation: dotPulse 2000ms ease-in-out infinite;
   }
-  @keyframes dotPulse {
-    0%,
-    100% {
-      transform: translateY(-1px) scale(1);
-      opacity: 0.9;
-    }
-    50% {
-      transform: translateY(-1px) scale(1.15);
-      opacity: 1;
-    }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    transform: translateY(-1px) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-1px) scale(1.15);
+    opacity: 1;
   }
 }
 </style>

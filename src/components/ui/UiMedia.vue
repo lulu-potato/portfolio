@@ -69,13 +69,13 @@ const handleVideoPause = () => {
 
 <template>
   <figure
-    class="base-media"
+    class="ui-media"
     :class="[
-      `base-media--${fit}`,
+      `ui-media--${fit}`,
       {
-        'base-media--empty': !src,
-        'base-media--toggleable': canToggleVideo,
-        'base-media--playing': isPlaying,
+        'ui-media--empty': !src,
+        'ui-media--toggleable': canToggleVideo,
+        'ui-media--playing': isPlaying,
       },
     ]"
     :style="{ '--media-width': width, '--media-height': height }"
@@ -103,8 +103,8 @@ const handleVideoPause = () => {
       @pause="handleVideoPause"
       @ended="handleVideoPause"
     />
-    <span v-if="showVideoOverlay" class="base-media__video-overlay" aria-hidden="true">
-      <span class="base-media__play-icon" />
+    <span v-if="showVideoOverlay" class="ui-media__video-overlay" aria-hidden="true">
+      <span class="ui-media__play-icon" />
     </span>
     <span v-else-if="!src">{{ label }}</span>
   </figure>
@@ -113,7 +113,7 @@ const handleVideoPause = () => {
 <style scoped lang="scss">
 @use '@/styles/typography.scss' as *;
 
-.base-media {
+.ui-media {
   width: 100%;
   min-width: 0;
   aspect-ratio: var(--media-width, 16) / var(--media-height, 10);
@@ -142,7 +142,7 @@ const handleVideoPause = () => {
   video {
     pointer-events: none;
   }
-  > span:not(.base-media__video-overlay) {
+  > span:not(.ui-media__video-overlay) {
     padding: var(--padding);
     text-align: center;
     overflow-wrap: anywhere;
@@ -198,7 +198,7 @@ const handleVideoPause = () => {
       transform: translateY(-1px);
       border-color: rgba(255, 255, 255, 0.18);
       box-shadow: 0 22px 52px rgba(0, 0, 0, 0.28);
-      .base-media__video-overlay {
+      .ui-media__video-overlay {
         background: rgba(0, 0, 0, 0.22);
       }
     }

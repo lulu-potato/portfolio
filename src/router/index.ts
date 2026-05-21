@@ -2,16 +2,32 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', name: 'Home', component: Home },
-    { path: '/projects', name: 'Projects', component: () => import('@/pages/Projects.vue') },
+    {
+      path: '/',
+      name: 'Home',
+      component: Home,
+      meta: { transitionName: 'out-in-fade', transitionMode: 'out-in' },
+    },
+    {
+      path: '/projects',
+      name: 'Projects',
+      component: () => import('@/pages/Projects.vue'),
+      meta: { transitionName: 'out-in-fade', transitionMode: 'out-in' },
+    },
     {
       path: '/projects/:slug',
       name: 'ProjectPage',
       component: () => import('@/pages/ProjectPage.vue'),
+      meta: { transitionName: 'out-in-fade', transitionMode: 'out-in' },
     },
-    { path: '/about', name: 'About', component: () => import('@/pages/About.vue') },
+    {
+      path: '/about',
+      name: 'About',
+      component: () => import('@/pages/About.vue'),
+      meta: { transitionName: 'out-in-fade', transitionMode: 'out-in' },
+    },
   ],
   scrollBehavior(_, __, savedPosition) {
     return savedPosition ?? { top: 0, behavior: 'smooth' }
@@ -20,12 +36,10 @@ const router = createRouter({
 
 router.afterEach((to) => {
   const baseTitle = 'Lucy Beauchamp — Frontend Developer'
-
   if (to.name === 'Home') {
     document.title = baseTitle
     return
   }
-
   const name =
     to.name === 'ProjectPage' && typeof to.params.slug === 'string'
       ? to.params.slug

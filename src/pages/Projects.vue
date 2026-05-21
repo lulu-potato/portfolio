@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BaseButton from '@/components/base/BaseButton.vue'
-import BaseCard from '@/components/base/BaseCard.vue'
+import UiButton from '@/components/ui/UiButton.vue'
+import UiCard from '@/components/ui/UiCard.vue'
 import { useFireworks } from '@/composables/useFireworks'
 import { projects } from '@/data/projects'
 
@@ -48,7 +48,7 @@ const handleProjectClick = (event: MouseEvent) => {
           :style="{ '--stagger-delay': `${0.1 + index * 0.1}s` }"
           @click="handleProjectClick"
         >
-          <BaseCard as="article" :options="{ variant: 'muted' }" :clickable="true">
+          <UiCard as="article" :options="{ variant: 'muted' }" :clickable="true">
             <template #header>
               <h2 class="projects__card-title">
                 {{ card.title }}
@@ -57,7 +57,8 @@ const handleProjectClick = (event: MouseEvent) => {
             <p class="projects__card-body">{{ card.body }}</p>
             <p v-if="card.stack" class="projects__card-stack">{{ card.stack }}</p>
             <template v-if="card.to" #footer>
-              <BaseButton
+              <UiButton
+                class="projects__item-button"
                 as="router-link"
                 :to="card.to"
                 text="view"
@@ -65,7 +66,7 @@ const handleProjectClick = (event: MouseEvent) => {
                 @click.stop="handleProjectClick"
               />
             </template>
-          </BaseCard>
+          </UiCard>
         </div>
       </TransitionGroup>
     </div>
@@ -104,32 +105,27 @@ const handleProjectClick = (event: MouseEvent) => {
   &__item {
     display: flex;
     min-width: 0;
-
     > * {
       flex: 1;
       min-width: 0;
       position: relative;
     }
-
-    :deep(.base-button) {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-
-      @include mobile {
-        width: auto;
-      }
+  }
+  &__item-button {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    @include tablet {
+      width: auto;
     }
   }
   &__grid {
     display: grid;
     gap: calc(var(--padding) * 1.25);
     min-width: 0;
-
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
     }
-
     @include desktop {
       grid-template-columns: repeat(3, 1fr);
     }

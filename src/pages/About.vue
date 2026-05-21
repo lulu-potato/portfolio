@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BaseCard from '@/components/base/BaseCard.vue'
-import BaseMedia from '@/components/base/BaseMedia.vue'
+import UiCard from '@/components/ui/UiCard.vue'
+import UiMedia from '@/components/ui/UiMedia.vue'
 import profileImage from '@/assets/images/profilepicture.jpg'
 </script>
 
@@ -8,7 +8,7 @@ import profileImage from '@/assets/images/profilepicture.jpg'
   <section class="about">
     <div class="about__inner">
       <Transition name="fade-up-slow" appear>
-        <BaseCard
+        <UiCard
           :options="{
             padding: 'lg',
           }"
@@ -18,7 +18,7 @@ import profileImage from '@/assets/images/profilepicture.jpg'
           </template>
 
           <div class="about__intro">
-            <BaseMedia
+            <UiMedia
               class="about__image"
               :src="profileImage"
               alt="Photo of Lucy Beauchamp"
@@ -45,7 +45,7 @@ import profileImage from '@/assets/images/profilepicture.jpg'
             I care about clarity, consistency, and building things in a way that makes sense for the
             people who work on them next (including future me!)
           </p>
-        </BaseCard>
+        </UiCard>
       </Transition>
     </div>
   </section>
