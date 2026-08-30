@@ -1,31 +1,15 @@
 <script setup lang="ts">
 import UiButton from '@/components/ui/UiButton.vue'
 import UiCard from '@/components/ui/UiCard.vue'
-import { useFireworks } from '@/composables/useFireworks'
 import { projects } from '@/data/projects'
 
-const { spawn: spawnFireworks } = useFireworks()
-
-const projectCards = [
-  ...projects.map((project) => ({
-    id: project.slug,
-    title: project.title,
-    body: project.summary,
-    stack: project.stack.join(' · '),
-    to: { name: 'ProjectPage', params: { slug: project.slug } },
-  })),
-  {
-    id: 'more-soon',
-    title: 'More soon',
-    body: 'In the meantime, click this card for some fireworks 🎇',
-    stack: '',
-    to: undefined,
-  },
-]
-
-const handleProjectClick = (event: MouseEvent) => {
-  spawnFireworks(event)
-}
+const projectCards = projects.map((project) => ({
+  id: project.slug,
+  title: project.title,
+  body: project.summary,
+  stack: project.stack.join(' · '),
+  to: { name: 'ProjectPage', params: { slug: project.slug } },
+}))
 </script>
 
 <template>
@@ -39,9 +23,8 @@ const handleProjectClick = (event: MouseEvent) => {
           :key="card.id"
           class="projects__item"
           :style="{ '--stagger-delay': `${0.1 + index * 0.1}s` }"
-          @click="!card.to && handleProjectClick($event)"
         >
-          <UiCard as="article" :options="{ variant: 'muted' }" :clickable="!card.to">
+          <UiCard as="article" :options="{ variant: 'muted' }">
             <template #header>
               <h2 class="projects__card-title">
                 {{ card.title }}
@@ -49,7 +32,7 @@ const handleProjectClick = (event: MouseEvent) => {
             </template>
             <p class="projects__card-body">{{ card.body }}</p>
             <p v-if="card.stack" class="projects__card-stack">{{ card.stack }}</p>
-            <template v-if="card.to" #footer>
+            <template #footer>
               <UiButton
                 class="projects__item-button"
                 as="router-link"
