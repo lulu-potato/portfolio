@@ -24,7 +24,7 @@ const selectedGalleryIndex = ref<number | null>(null)
 
 const selectedGalleryMedia = computed<ProjectMedia | null>(() => {
   if (!project.value || selectedGalleryIndex.value === null) return null
-  return project.value.galleryMedia[selectedGalleryIndex.value] ?? null
+  return project.value.galleryMedia?.[selectedGalleryIndex.value] ?? null
 })
 
 const openGalleryMedia = (index: number) => {
@@ -58,7 +58,7 @@ const closeGalleryMedia = () => {
               class="project-detail__intro-button"
               as="a"
               :href="project.liveUrl"
-              text="View Live Experience"
+              :text="project.liveLinkText || 'View Live Experience'"
               :options="{ variant: 'primary' }"
             />
           </div>
@@ -98,7 +98,11 @@ const closeGalleryMedia = () => {
           </ul>
         </section>
 
-        <section class="project-detail__section" aria-labelledby="gallery">
+        <section
+          v-if="project.galleryMedia?.length"
+          class="project-detail__section"
+          aria-labelledby="gallery"
+        >
           <h2 id="gallery">Gallery</h2>
           <div class="project-detail__gallery">
             <button
@@ -121,7 +125,7 @@ const closeGalleryMedia = () => {
               class="project-detail__links-button"
               as="a"
               :href="project.liveUrl"
-              text="View Live Experience"
+              :text="project.liveLinkText || 'View Live Experience'"
               :options="{ variant: 'primary' }"
             />
             <UiButton

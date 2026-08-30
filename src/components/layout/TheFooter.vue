@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useFireworks } from '@/composables/useFireworks'
+
 const year = new Date().getFullYear()
+const { spawn } = useFireworks()
 
 const footerLinks = [
   { href: 'https://github.com/lulu-potato', text: 'GitHub' },
@@ -10,7 +13,12 @@ const footerLinks = [
 <template>
   <footer class="the-footer">
     <div class="the-footer__inner">
-      <p class="the-footer__text">© {{ year }} Lucy Beauchamp</p>
+      <p class="the-footer__text">
+        © {{ year }}
+        <button class="the-footer__made-by" type="button" @click="spawn($event, `That's me!`)">
+          Lucy made this.
+        </button>
+      </p>
 
       <div class="the-footer__links">
         <a
@@ -48,6 +56,22 @@ const footerLinks = [
   &__text {
     @include body-default(small);
     color: rgb(var(--text-muted));
+  }
+  &__made-by {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    transition: color 120ms ease;
+    &:hover {
+      color: rgb(var(--accent));
+    }
+    &:focus-visible {
+      outline: 2px solid rgb(var(--accent-dim));
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
   }
   &__links {
     display: flex;

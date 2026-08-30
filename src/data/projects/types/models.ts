@@ -27,10 +27,11 @@ export type Project = {
   heroSummary: string
   heroMedia: ProjectMedia
   liveUrl: string
+  liveLinkText?: string
   githubUrl?: string
   overview: string[]
   techStack: string[]
   keyFeatures: string[]
   designDecisions: ProjectDesignDecision[]
-  galleryMedia: ProjectMedia[]
+  galleryMedia?: ProjectMedia[]
 }

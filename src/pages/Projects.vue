@@ -15,13 +15,6 @@ const projectCards = [
     to: { name: 'ProjectPage', params: { slug: project.slug } },
   })),
   {
-    id: 'component-ui',
-    title: 'Component UI',
-    body: 'This site itself is built with reusable components, tokens, and motion utilities.',
-    stack: '',
-    to: undefined,
-  },
-  {
     id: 'more-soon',
     title: 'More soon',
     body: 'In the meantime, click the cards for some fireworks 🎇',
@@ -61,7 +54,7 @@ const handleProjectClick = (event: MouseEvent) => {
                 class="projects__item-button"
                 as="router-link"
                 :to="card.to"
-                text="view"
+                text="View"
                 :options="{ variant: 'secondary', size: 'small' }"
                 @click.stop="handleProjectClick"
               />

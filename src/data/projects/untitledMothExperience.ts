@@ -3,7 +3,7 @@ import mothExperienceAngryTextMoth from '@/assets/images/projects/moth-experienc
 import mothExperienceHero from '@/assets/images/projects/moth-experience/hero.png'
 import mothExperienceOwl from '@/assets/images/projects/moth-experience/owl.png'
 import mothExperienceSwarm from '@/assets/images/projects/moth-experience/swarm.mp4'
-import type { Project } from './types'
+import type { Project } from './types/models'
 
 export const untitledMothExperience: Project = {
   slug: 'untitled-moth-experience',
@@ -22,7 +22,7 @@ export const untitledMothExperience: Project = {
     width: 713,
     height: 583,
   },
-  liveUrl: 'https://untitled-moth.netlify.app/',
+  liveUrl: 'https://untitled-moth-experience.com',
   overview: [
     `untitled MÖTH experience started as a small experiment in animation and interaction design, inspired by old point-and-click adventures and the internet's — and my — obsession with moth memes.`,
     `I wanted to create something atmospheric and a little weird while keeping the experience simple and approachable.`,

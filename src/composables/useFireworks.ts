@@ -17,7 +17,7 @@ export const useFireworks = () => {
   const shouldReduceMotion = () =>
     typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  const spawn = (event: MouseEvent) => {
+  const spawn = (event: MouseEvent, message?: string) => {
     if (shouldReduceMotion()) return
 
     const container = document.createElement('div')
@@ -50,6 +50,13 @@ export const useFireworks = () => {
       particle.style.height = `${size}px`
 
       container.appendChild(particle)
+    }
+
+    if (message) {
+      const messageElement = document.createElement('div')
+      messageElement.className = 'fx-fireworks__message'
+      messageElement.textContent = message
+      container.appendChild(messageElement)
     }
 
     document.body.appendChild(container)
