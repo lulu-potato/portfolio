@@ -17,7 +17,7 @@ const projectCards = [
   {
     id: 'more-soon',
     title: 'More soon',
-    body: 'In the meantime, click the cards for some fireworks 🎇',
+    body: 'In the meantime, click this card for some fireworks 🎇',
     stack: '',
     to: undefined,
   },
@@ -39,9 +39,9 @@ const handleProjectClick = (event: MouseEvent) => {
           :key="card.id"
           class="projects__item"
           :style="{ '--stagger-delay': `${0.1 + index * 0.1}s` }"
-          @click="handleProjectClick"
+          @click="!card.to && handleProjectClick($event)"
         >
-          <UiCard as="article" :options="{ variant: 'muted' }" :clickable="true">
+          <UiCard as="article" :options="{ variant: 'muted' }" :clickable="!card.to">
             <template #header>
               <h2 class="projects__card-title">
                 {{ card.title }}
@@ -56,7 +56,6 @@ const handleProjectClick = (event: MouseEvent) => {
                 :to="card.to"
                 text="View"
                 :options="{ variant: 'secondary', size: 'small' }"
-                @click.stop="handleProjectClick"
               />
             </template>
           </UiCard>

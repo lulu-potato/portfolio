@@ -40,7 +40,6 @@ const handleBrandClick = (event: MouseEvent) => {
               :to="link.to"
               :options="{ variant: 'ghost', size: 'small', width: 'full' }"
               :text="link.text"
-              @click="spawnFireworks"
             />
           </div>
         </TransitionGroup>
