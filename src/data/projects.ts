@@ -7,7 +7,7 @@ import { resilientFitness } from './projects/resilientFitness'
 import { untitledMothExperience } from './projects/untitledMothExperience'
 import { thePiggy } from './projects/thePiggy'
 
-export const projects: Project[] = [untitledMothExperience, thePiggy, resilientFitness]
+export const projects: Project[] = [resilientFitness, thePiggy, untitledMothExperience]
 
 export const getProjectBySlug = (slug: string) => {
   return projects.find((project) => project.slug === slug)
